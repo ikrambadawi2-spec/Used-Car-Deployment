@@ -145,7 +145,7 @@ with tab_dict:
     dict_df = pd.DataFrame(columns_meta)
     st.dataframe(
         dict_df,
-        use_container_width=True,
+        use_container_width= "stretch",
         hide_index=True,
         column_config={
             "Column Name": st.column_config.TextColumn("Column Name", width="medium"),
@@ -192,7 +192,7 @@ with tab_stats:
     formatted_stats["75th Percentile"] = formatted_stats["75th Percentile"].apply(lambda x: f"{x:,.2f}")
     formatted_stats["Maximum"] = formatted_stats["Maximum"].apply(lambda x: f"{x:,.2f}")
 
-    st.dataframe(formatted_stats, use_container_width=True)
+    st.dataframe(formatted_stats, use_container_width="stretch")
 
     st.markdown("#### 🛡️ Data Quality & Integrity Status")
     q_col1, q_col2, q_col3 = st.columns(3)
@@ -231,7 +231,7 @@ with tab_explore:
     )
 
     if display_cols:
-        st.dataframe(filtered_df[display_cols].head(row_count), use_container_width=True, hide_index=True)
+        st.dataframe(filtered_df[display_cols].head(row_count), use_container_width= "stretch", hide_index=True)
     else:
         st.warning("Please select at least one column to view.")
 
